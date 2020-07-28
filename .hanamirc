@@ -1,0 +1,3 @@
+project=issue_tracker
+test=rspec
+template=erb
