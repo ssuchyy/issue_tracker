@@ -7,10 +7,9 @@ gem 'hanami-model', '~> 1.3'
 gem 'sqlite3'
 
 group :development do
-  # Code reloading
-  # See: https://guides.hanamirb.org/projects/code-reloading
   gem 'shotgun', platforms: :ruby
   gem 'hanami-webconsole'
+  gem "capistrano", "~> 3.14", require: false
 end
 
 group :test, :development do
