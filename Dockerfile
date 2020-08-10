@@ -1,7 +1,7 @@
 FROM ruby:2.7.1
 
 RUN apt-get update
-RUN apt-get install sqlite3
+RUN apt-get install postgresql-client --yes
 RUN gem install bundler
 
 COPY Gemfile* /usr/src/app/

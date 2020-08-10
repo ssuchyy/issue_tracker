@@ -5,3 +5,17 @@ services:
     build: .
     ports:
       - "2300:2300"
+    volumes:
+      - .:/usr/src/app
+  db:
+    image: postgres
+    restart: always
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=issue_tracker_development
+
+volumes:
+  db_data:
