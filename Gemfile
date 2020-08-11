@@ -6,6 +6,7 @@ gem 'hanami-model', '~> 1.3'
 
 gem 'bigdecimal', '~> 1.4'
 gem 'pg'
+gem 'grape-entity'
 
 group :development do
   gem 'shotgun', platforms: :ruby

@@ -1,5 +1,6 @@
 require 'hanami/helpers'
 require 'hanami/assets'
+require_relative './controllers/validation'
 
 module Api
   class Application < Hanami::Application
@@ -19,7 +20,7 @@ module Api
       # When you add new directories, remember to add them here.
       #
       load_paths << [
-        'controllers',
+        'controllers', 'decorators'
       ]
 
       # Handle exceptions with HTTP statuses (true) or don't catch them (false).
@@ -245,6 +246,7 @@ module Api
       #
       # See: http://www.rubydoc.info/gems/hanami-controller#Configuration
       controller.prepare do
+        include Api::Validation
         # include MyAuthentication # included in all the actions
         # before :authenticate!    # run an authentication before callback
       end
