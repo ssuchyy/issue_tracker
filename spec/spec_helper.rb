@@ -27,6 +27,28 @@ require "pry"
 RSpec.configure do |config|
   config.include ApiHelper
 
+  config.include FactoryBot::Syntax::Methods
+
+  FactoryBot.define do
+    to_create do |instance|
+      repository = Object.const_get("#{instance.class}Repository").new
+      repository.create(instance)
+    end
+  end
+
+  config.before(:suite) do
+    FactoryBot.find_definitions
+  end
+
+  DatabaseCleaner[:sequel].strategy = :transaction
+  config.before(:example) do
+    DatabaseCleaner[:sequel].start
+  end
+
+  config.after(:example) do
+    DatabaseCleaner[:sequel].clean
+  end
+
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.

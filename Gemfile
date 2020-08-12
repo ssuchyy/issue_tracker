@@ -21,6 +21,8 @@ end
 group :test do
   gem 'rspec'
   gem 'capybara'
+  gem 'factory_bot'
+  gem 'database_cleaner-sequel'
 end
 
 group :production do
