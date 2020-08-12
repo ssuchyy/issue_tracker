@@ -29,7 +29,7 @@ RSpec.describe Api::Controllers::Issues::Create, type: :action do
 
     it 'returns all errors in response' do
       response = action.call(params)
-      expect(parsed_body(response)).to include(title: ["is missing"],
+      expect(parsed_body(response)[:errors]).to include(title: ["is missing"],
                                      type: ["is missing"],
                                      description: ["must be filled"])
     end

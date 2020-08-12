@@ -1,6 +1,6 @@
 require 'hanami/helpers'
 require 'hanami/assets'
-require_relative './controllers/validation'
+require_relative './controllers/failure_handling'
 
 module Api
   class Application < Hanami::Application
@@ -246,7 +246,7 @@ module Api
       #
       # See: http://www.rubydoc.info/gems/hanami-controller#Configuration
       controller.prepare do
-        include Api::Validation
+        include Api::FailureHandling
         # include MyAuthentication # included in all the actions
         # before :authenticate!    # run an authentication before callback
       end
