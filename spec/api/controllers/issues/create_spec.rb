@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 RSpec.describe Api::Controllers::Issues::Create, type: :action do
   let(:action) { described_class.new }
 
   context "when params are valid" do
     let(:params) { Hash[title: "Configure application", type: "task", description: "Just do it"] }
 
-    it 'is successful' do
+    it "is successful" do
       response = action.call(params)
       expect(response[0]).to eq 200
     end
@@ -22,16 +24,16 @@ RSpec.describe Api::Controllers::Issues::Create, type: :action do
   context "when params are invalid" do
     let(:params) { Hash[description: ""] }
 
-    it 'returns bad request response code' do
+    it "returns bad request response code" do
       response = action.call(params)
       expect(response[0]).to eq 400
     end
 
-    it 'returns all errors in response' do
+    it "returns all errors in response" do
       response = action.call(params)
       expect(parsed_body(response)[:errors]).to include(title: ["is missing"],
-                                     type: ["is missing"],
-                                     description: ["must be filled"])
+                                                        type: ["is missing"],
+                                                        description: ["must be filled"])
     end
   end
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Api
   module FailureHandling
     def handle_validation_failure(params)

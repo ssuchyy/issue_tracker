@@ -1,0 +1,26 @@
+AllCops:
+  Exclude:
+    - 'db/**/*.rb'
+    - 'config/**/*.rb'
+    - 'config/*.rb'
+    - 'config.ru'
+    - 'apps/api/config/**/*.rb'
+    - 'apps/api/config/*.rb'
+    - 'apps/api/application.rb'
+    - 'Rakefile'
+    - 'Gemfile'
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+Style/FrozenStringLiteralComment:
+  EnforcedStyle: always_true
+Style/BlockComments:
+  Enabled: false
+Style/NumericLiterals:
+  Enabled: false
+Metrics/BlockLength:
+  Enabled: false
+Layout/LineLength:
+  Enabled: false
+Style/Documentation:
+  Enabled: false
