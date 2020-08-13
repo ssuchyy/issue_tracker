@@ -3,7 +3,7 @@
 module Api
   module Controllers
     module Issues
-      class Delete
+      class Destroy
         include Api::Action
 
         params do

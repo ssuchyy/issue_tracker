@@ -246,6 +246,7 @@ module Api
       #
       # See: http://www.rubydoc.info/gems/hanami-controller#Configuration
       controller.prepare do
+        include Api::FormatHandling
         include Api::FailureHandling
         # include MyAuthentication # included in all the actions
         # before :authenticate!    # run an authentication before callback
