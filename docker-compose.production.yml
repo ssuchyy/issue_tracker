@@ -7,5 +7,5 @@ services:
       - "2300:2300"
     volumes:
       - .:/usr/src/app
-    env-file:
+    env_file:
       - secrets.env
