@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    ports:
+      - "2300:2300"
+    volumes:
+      - .:/usr/src/app
+    env-file:
+      - secrets.env
