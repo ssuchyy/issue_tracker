@@ -1,0 +1,21 @@
+language: ruby
+rvm:
+- 2.7.1
+env:
+  global:
+  - secure: B88kDyJbwzmV2Lvn+CYCq15dDypY1uB5KbB95+bhUJ/dHrhtiHChysQaZvpWLMRaceK4H5C+OFEMBhtORD+Eh06FDD+M/PfwmkziOCoX5ciyczldLzRjLoQyybpcBccG37ixZ2/rd28kDl2ww9SFvVqRWsFm/fODF+HjSdk6wWOT24AfyfziwRXreOb4sfcBbjwyNZi/N3qf74i3e43H/S1S4ZdiuGaLinQsOP+08OF9QjeJD/79Jtr9OiWGWGIY4zRbWxcRyYnfkZrRoTmroiETFkmdDiHKJQJ4ad7C/RgMYUJXzqwjKNZyRRynl64tjjfLH9iSayi9W4SBVuv4S/5I3aDqkCV/5Lt1JKG7zQM7Cv8YC7UN8oye8d1P9aCFrdKx9N8ZjeovWDV3q9LvUWmc05h2v9PcDVVu0nN5TyvIvmxTgu+/HsEygc67AL3KpGkQlnmOqwqAsTTzuWlzJ1QSmpTsERvvadvDAUeyPxSl/IwubR0khggQ2qNouPm/zTcR35CjjZz9LnZJJLDqBCOvXc6JqJ6YGpFXwzVu+WAZbCxxiB3Qc5Ww2Dv9LcHJ3s8YWvDBBaNUU2mg3FtKwP9sr7yGP3sFtYRqvLyflPUPLuB59MG5YiCDeWkt6OJc8cyoR1pO582KwZwKfLhmotz/Wcr0xT1xxbIgffgPLm4=
+  - secure: Quc3dWX1p+pecPldjA0faruJ4lEY0nYFcl+40ptcNTKYW/iY1sKEkbX1WIi2R5v/q5WzFKccsCFtFGoq8kiaDNyBbPzrdCV2pDw6IqvocHKRE4pcgJf1s67uhSlCUN104Tjb8y1x5DncWfVIWnS5xwFc8B8m+9mkrzU8qFfo1Z2Py/E31ggXZqIwIHGKkblN/g0Rxl6fcXObO58/08yWc1g4gYwer5R9Np+IjUh6ecdXAKanVFdPZiaTr7YmU9CTH/s/bb//gS8wiqDmAzbWsVNz9SVaPGiptTlrIRKpTY5whBLNI5Gfglqv1UBIvmsS7FAHquNteOT+A7bHLh3sOs1DAFytLHftnorkfsqBWYXa1Bom4MohhkjqlV2mIP/f5gEr1Po9wWY0Yk1CN7M/1HWJ5hYiTDB/ENFusq19rHvdJQENdzM0XPye/WVlFy4t7ZjKqMWiYcnN7QTHaeH0TzH1t7rUwUuVYVJtjpBuLxg30bNFHkhOGK0q3DgP2YN28jAGCHudlAE1w6C8iXtbA76e5NGQpH6iZnGnQzIs5wk2KWgiGM1EnuVHGWcq8CrmCYYRZ9c4wHfTTBQyQw3RT8H5WT7uVHwJXGRPLhfHBlEdEPtnU5brmDivVYW/kd1UN7Zp6WI/J44xyI5UX4eEubggTomc8fvbkBepOhG8bRQ=
+  - DATABASE_URL="postgresql://postgres@localhost/issue_tracker_test"
+cache: bundler
+services:
+- postgresql
+before_script:
+- bundle exec hanami db prepare
+deploy:
+  - provider: codedeploy
+    revision_type: github
+    access_key_id: $TRAVIS_CI_AWS_ACCESS_KEY_ID
+    secret_access_key: $TRAVIS_CI_AWS_SECRET_ACCESS_KEY
+    application: "IssueTracker"
+    deployment_group: "IssueTrackerDeploymentGroup"
+    region: "us-east-1"

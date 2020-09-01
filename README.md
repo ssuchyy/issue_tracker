@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/ssuchyy/issue_tracker.svg?branch=master)](https://travis-ci.org/ssuchyy/issue_tracker)
+
 # Issue Tracker
 
 Welcome to your new Hanami project!
