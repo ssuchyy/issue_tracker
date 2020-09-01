@@ -11,12 +11,12 @@ gem 'grape-entity'
 group :development do
   gem 'shotgun', platforms: :ruby
   gem 'hanami-webconsole'
-  gem 'pry', '~> 0.12.2'
   gem 'rubocop', require: false
 end
 
 group :test, :development do
   gem 'dotenv', '~> 2.4'
+  gem 'pry', '~> 0.12.2'
 end
 
 group :test do

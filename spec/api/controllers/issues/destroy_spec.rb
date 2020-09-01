@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe Api::Controllers::Issues::Delete, type: :action do
+RSpec.describe Api::Controllers::Issues::Destroy, type: :action do
   let(:action) { described_class.new }
 
   context "when params are valid" do
