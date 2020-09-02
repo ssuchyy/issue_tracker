@@ -19,3 +19,4 @@ deploy:
     application: "IssueTracker"
     deployment_group: "IssueTrackerDeploymentGroup"
     region: "us-east-1"
+    wait_until_deployed: true
