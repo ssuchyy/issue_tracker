@@ -8,6 +8,9 @@ gem 'bigdecimal', '~> 1.4'
 gem 'pg'
 gem 'grape-entity'
 
+gem "shrine", "~> 3.0"
+gem 'aws-sdk-s3', '~> 1'
+
 group :development do
   gem 'shotgun', platforms: :ruby
   gem 'hanami-webconsole'
