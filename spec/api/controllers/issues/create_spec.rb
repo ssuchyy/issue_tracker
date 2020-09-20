@@ -12,7 +12,7 @@ RSpec.describe Api::Controllers::Issues::Create, type: :action do
     end
 
     it "creates new issue from params" do
-      expect {action.call(params)}.to change{ IssueRepository.new.all.count }.by(1)
+      expect { action.call(params) }.to change { IssueRepository.new.all.count }.by(1)
     end
 
     it "returns newly created issue as response" do

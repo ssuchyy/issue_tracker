@@ -6,12 +6,12 @@ module Api
       action.class_eval do
         before :force_json
       end
+    end
 
-      private
+    private
 
-      def force_json
-        self.format = :json
-      end
+    def force_json
+      self.format = :json
     end
   end
 end
