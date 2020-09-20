@@ -11,7 +11,7 @@ RSpec.describe Api::Controllers::Issues::Index, type: :action do
       response = action.call(params)
       parsed_response = parsed_body(response)
 
-      expect(parsed_response.count).to eq(3)
+      expect(parsed_response.count).to eq(4)
       expect(parsed_response[0]).to include(:id, :title, :description, :type)
     end
   end
