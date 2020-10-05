@@ -8,7 +8,7 @@ gem 'bigdecimal', '~> 1.4'
 gem 'pg'
 gem 'grape-entity'
 
-gem "shrine", "~> 3.0"
+gem "shrine", "~> 3.3"
 gem 'aws-sdk-s3', '~> 1'
 
 group :development do
